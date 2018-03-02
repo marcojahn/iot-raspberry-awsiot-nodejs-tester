@@ -2204,6 +2204,10 @@ hawk@~6.0.2:
     hoek "4.x.x"
     sntp "2.x.x"
 
+healthcheck-middleware@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/healthcheck-middleware/-/healthcheck-middleware-1.0.1.tgz#70556533d3c472b594ef8a37e3b84af7d9e54ad9"
+
 hoek@2.x.x:
   version "2.16.3"
   resolved "https://registry.npmjs.org/hoek/-/hoek-2.16.3.tgz#20bb7403d3cea398e91dc4710a8ff1b8274a25ed"
