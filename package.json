@@ -1,14 +1,16 @@
 {
   "name": "iot-raspberry-awsiot-nodejs-tester",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./lib/iot-backend.js",
   "repository": "https://github.com/marcojahn/iot-raspberry-awsiot-nodejs-tester.git",
   "author": "Marco Jahn <marco.jahn@gmail.com>",
   "license": "MIT",
   "scripts": {
     "lint": "eslint --fix lib/**/*.js test/**/*.js",
     "test": "jest",
-    "serve:watch": "nodemon index.js",
+    "build": "rimraf dist/ && babel ./lib --out-dir dist/",
+    "serve:prod": "nodemon ./dist/iot-backend.js",
+    "serve:watch": "nodemon --exec yarn run babel-node -- ./lib/iot-backend.js",
     "prettier:lib": "prettier lib/**/*.js",
     "prettier:spec": "prettier test/**/*.spec.js"
   },
@@ -42,6 +44,11 @@
     "arrowParens": "always",
     "trailingComma": "none"
   },
+  "babel": {
+    "presets": [
+      "latest"
+    ]
+  },
   "nodemonConfig": {
     "verbose": false,
     "ignore": [],
@@ -51,16 +58,20 @@
     ]
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-latest": "^6.24.1",
     "eslint": "^4.18.1",
     "eslint-plugin-jest": "^21.12.2",
     "jest": "^22.4.2",
     "lint-staged": "^7.0.0",
     "nodemon": "^1.17.1",
     "prettier": "^1.11.1",
+    "rimraf": "^2.6.2",
     "yorkie": "^1.0.3"
   },
   "dependencies": {
     "express": "^4.16.2",
-    "morgan": "^1.9.0"
+    "express-winston": "^2.5.0",
+    "winston": "^2.4.0"
   }
 }
