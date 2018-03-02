@@ -1,0 +1,66 @@
+{
+  "name": "iot-raspberry-awsiot-nodejs-tester",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/marcojahn/iot-raspberry-awsiot-nodejs-tester.git",
+  "author": "Marco Jahn <marco.jahn@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint --fix lib/**/*.js test/**/*.js",
+    "test": "jest",
+    "serve:watch": "nodemon index.js",
+    "prettier:lib": "prettier lib/**/*.js",
+    "prettier:spec": "prettier test/**/*.spec.js"
+  },
+  "gitHooks": {
+    "pre-commit": "./node_modules/.bin/lint-staged"
+  },
+  "lint-staged": {
+    "lib/**/*.js": [
+      "yarn lint",
+      "yarn prettier:lib",
+      "git add"
+    ],
+    "test/**/*.js": [
+      "yarn lint",
+      "yarn prettier:spec",
+      "git add"
+    ]
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      ".*.helper.js"
+    ],
+    "logHeapUsage": true
+  },
+  "prettier": {
+    "parser": "typescript",
+    "printWidth": 80,
+    "tabWidth": 2,
+    "singleQuote": true,
+    "arrowParens": "always",
+    "trailingComma": "none"
+  },
+  "nodemonConfig": {
+    "verbose": false,
+    "ignore": [],
+    "watch": [
+      "index.js",
+      "lib/**/*.js"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "^4.18.1",
+    "eslint-plugin-jest": "^21.12.2",
+    "jest": "^22.4.2",
+    "lint-staged": "^7.0.0",
+    "nodemon": "^1.17.1",
+    "prettier": "^1.11.1",
+    "yorkie": "^1.0.3"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "morgan": "^1.9.0"
+  }
+}

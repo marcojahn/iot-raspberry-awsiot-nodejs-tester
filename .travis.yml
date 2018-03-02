@@ -1,0 +1,16 @@
+language: node_js
+sudo: true
+cache:
+  yarn: true
+  directories:
+    - node
+    - node_modules
+dist: trusty
+node_js:
+  - '9.5'
+branches:
+  only:
+  - master
+script:
+ - yarn lint
+ - yarn jest
