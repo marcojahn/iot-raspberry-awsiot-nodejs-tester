@@ -1,8 +1,0 @@
-GET http://localhost:3000
-Accept: */*
-Cache-Control: no-cache
-
-<> 2018-03-02T102808.200.html
-
-###
-
