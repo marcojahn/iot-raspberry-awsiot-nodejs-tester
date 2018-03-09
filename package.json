@@ -18,12 +18,12 @@
     "pre-commit": "./node_modules/.bin/lint-staged"
   },
   "lint-staged": {
-    "lib/**/*.js": [
+    "_lib/**/*.js": [
       "yarn lint",
       "yarn prettier:lib",
       "git add"
     ],
-    "test/**/*.js": [
+    "_test/**/*.js": [
       "yarn lint",
       "yarn prettier:spec",
       "git add"
@@ -75,6 +75,7 @@
     "express": "^4.16.2",
     "express-winston": "^2.5.0",
     "healthcheck-middleware": "^1.0.1",
+    "johnny-five": "^0.14.1",
     "winston": "^2.4.0"
   }
 }
