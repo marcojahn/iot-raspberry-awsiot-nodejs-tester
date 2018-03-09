@@ -76,6 +76,7 @@
     "express-winston": "^2.5.0",
     "healthcheck-middleware": "^1.0.1",
     "johnny-five": "^0.14.1",
+    "node-ipc": "^9.1.1",
     "winston": "^2.4.0"
   }
 }
