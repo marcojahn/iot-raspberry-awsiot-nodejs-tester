@@ -18,12 +18,12 @@
     "pre-commit": "./node_modules/.bin/lint-staged"
   },
   "lint-staged": {
-    "_lib/**/*.js": [
+    "lib/**/*.js": [
       "yarn lint",
       "yarn prettier:lib",
       "git add"
     ],
-    "_test/**/*.js": [
+    "test/**/*.js": [
       "yarn lint",
       "yarn prettier:spec",
       "git add"
